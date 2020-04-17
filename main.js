@@ -101,13 +101,13 @@ const removeFromLocalStorage = function (removingId) {
   let index = memo.findIndex( ({ id }) => id === removingId); //一個しかない配列を検索すると-1が帰ってくる?
   if (index === -1) { // この際、-1だったら特別な処理を実装
     console.log('Delte this index item:' + 0)
-    const newMemo = memo.splice(0,1)
-    localStorage.setItem('memo',JSON.stringify(newMemo))
+    memo.splice(0,1)
+    localStorage.setItem('memo',JSON.stringify(memo))
   } else {
     //  const index = indexOfId(memo,id)
     console.log('Delte this index item:' + index)
-    const newMemo = memo.splice(index,1) // なぜかspliceがindex移行の要素を全て削除する。
-    localStorage.setItem('memo',JSON.stringify(newMemo))
+    memo.splice(index,1) // なぜかspliceがindex移行の要素を全て削除する。
+    localStorage.setItem('memo',JSON.stringify(memo))
   }
 }
 
